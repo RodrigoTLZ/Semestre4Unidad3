@@ -33,7 +33,7 @@
                 <Label Margin="4,0,0,0" TextColor="Gold" FontSize="23" FontAttributes="Bold" Text="{Binding Calificación, StringFormat='{0:F1}'}"></Label>
             </FlexLayout>
             <Frame BackgroundColor="DarkGray" Margin="15,15,15,0" Padding="0.3"></Frame>
-            <Label Margin="20,10,0,0" FontAttributes="Bold" FontSize="20" TextColor="White">Sinópsis</Label>
+            <Label Margin="20,10,0,0" FontAttributes="Bold" FontSize="20" TextColor="White">Sinopsis</Label>
             <Label Margin="20,10,40,30" TextColor="White" Text="{Binding Sinopsis}"></Label>
         </StackLayout>
     </ScrollView>

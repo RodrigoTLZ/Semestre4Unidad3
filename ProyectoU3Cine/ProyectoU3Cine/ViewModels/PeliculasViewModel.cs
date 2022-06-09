@@ -78,7 +78,7 @@ namespace ProyectoU3Cine.ViewModels
 
                 if (string.IsNullOrWhiteSpace(Pelicula.Sinopsis))
                 {
-                    MensajeError = "Escribe la sinópsis de la película";
+                    MensajeError = "Escribe la sinopsis de la película";
                 }
 
                 if (string.IsNullOrWhiteSpace(Pelicula.Género))
@@ -155,7 +155,7 @@ namespace ProyectoU3Cine.ViewModels
 
                 if(string.IsNullOrWhiteSpace(Pelicula.Sinopsis))
                 {
-                    MensajeError = "Escribe la sinópsis de la película";
+                    MensajeError = "Escribe la sinopsis de la película";
                 }
 
                 if(string.IsNullOrWhiteSpace(Pelicula.Género))

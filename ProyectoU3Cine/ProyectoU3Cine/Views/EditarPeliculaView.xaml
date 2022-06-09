@@ -62,7 +62,7 @@
 
         <Frame>
             <StackLayout>
-                <Label Text="Sinópsis:"></Label>
+                <Label Text="Sinopsis:"></Label>
                 <Entry Text="{Binding Pelicula.Sinopsis}"></Entry>
             </StackLayout>
         </Frame>
