@@ -184,7 +184,7 @@ namespace ProyectoU3Cine.ViewModels
 
                 if(!Uri.TryCreate(Pelicula.ImagenURL, UriKind.Absolute, out var uri))
                 {
-                    MensajeError = "Escribe el URL de la imágen de portada que deseas en la película";
+                    MensajeError = "Escribe el URL de la imagen de portada que deseas en la película";
                 }
 
                 if(string.IsNullOrWhiteSpace(MensajeError))
