@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoU3Cine.Views.ListadoPeliculasView" Background="#100E2A"
+             xmlns:model ="clr-namespace:ProyectoU3Cine.Models"
+             xmlns:viewmodel = "clr-namespace:ProyectoU3Cine.ViewModels"
+             Title="¡Bienvenido!">
+    <ContentPage.BindingContext>
+        <viewmodel:PeliculasViewModel x:Name="pvm"></viewmodel:PeliculasViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="Padding" Value="0,20,0,20"></Setter>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Gray"></Setter>
+            <Setter Property="FontSize" Value="10"></Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding CambiarVistaCommand}" CommandParameter="Agregar" IconImageSource="Agregar.png"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+
+        <CollectionView ItemsSource="{Binding ListaPeliculas}" Margin="30,-10,30,0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView BackgroundColor="#100E2A">
+                        <SwipeView.RightItems>
+                            <SwipeItems Mode="Execute">
+                            <SwipeItem Command="{Binding Source={x:Reference pvm}, Path=EditarCommand}" CommandParameter="{Binding .}" BackgroundColor="Gold" Text="Editar" ></SwipeItem>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <SwipeView.LeftItems>
+                            <SwipeItems Mode="Execute">
+                            <SwipeItem Clicked="SwipeItem_Clicked" CommandParameter="{Binding .}" BackgroundColor="#B41818" Text="Eliminar"></SwipeItem>
+                            </SwipeItems>
+                        </SwipeView.LeftItems>
+                    <!--<ViewCell>-->
+                        <!--<ViewCell.ContextActions>
+                            <MenuItem Text="Editar" Command="{Binding Source={x:Reference pvm}, Path=EditarCommand}" CommandParameter="{Binding .}">
+                            </MenuItem>
+                            <MenuItem Text="Eliminar" Clicked="MenuItem_Clicked" CommandParameter="{Binding .}">
+                            </MenuItem>
+                        </ViewCell.ContextActions>-->
+
+                        <Grid>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:Reference pvm}, Path=VerDetallesCommand}" CommandParameter="{Binding .}">
+                                </TapGestureRecognizer>
+                            </Grid.GestureRecognizers>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Frame Grid.RowSpan="4"  Grid.ColumnSpan="2" CornerRadius="10" BackgroundColor="#171538">
+                            </Frame>
+                            <StackLayout Grid.Column="1">
+                                <Label FontAttributes="Bold" Margin="0,30,9,0" FontSize="15" Grid.Row="0" TextColor="White" Text="{Binding Nombre}"></Label>
+                                <Label Margin="0,3,0,0" Grid.Row="1" Text="{Binding Género, StringFormat='Género: {0}'}"></Label>
+                                <FlexLayout Margin="0,3,0,0">
+                                    <Image Source="Reloj.png" Margin="0,1,0,0" WidthRequest="10" ></Image>
+                                <Label Margin="4,-1.5,0,-20" Grid.Row="2" Text="{Binding Duración, StringFormat='Duración: {0} Minutos'}"></Label>
+                                </FlexLayout>
+                                <FlexLayout Margin="0,3,0,0">
+                                    <Image Source="Estrella.png" WidthRequest="20"></Image>
+                                    <Label FontSize="18" FontAttributes="Bold" Margin="2,0,0,0" TextColor="gold" Grid.Row="3" Text="{Binding Calificación, StringFormat='{0:F1}'}"></Label>
+                                </FlexLayout>
+                            </StackLayout>
+                            <Image Grid.Column="0" Grid.RowSpan="4" HeightRequest="10" Margin="5,-20,10,10" Source="{Binding ImagenURL}" ></Image>
+                        </Grid>
+                        <!--</ViewCell>-->
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ScrollView>
+</ContentPage>

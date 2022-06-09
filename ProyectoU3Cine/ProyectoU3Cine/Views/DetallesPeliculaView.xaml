@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoU3Cine.Views.DetallesPeliculaView" Background="#100E2A"
+             Title="Detalles de la película">
+    <ScrollView>
+    <StackLayout Margin="0,0,0,10">
+            <Frame CornerRadius="40" Margin="80,20,80,15" Padding="0">
+                <Image HeightRequest="350" Aspect="AspectFill" Source="{Binding ImagenURL}"></Image>
+            </Frame>
+            <Label Margin="20,0,0,5" FontAttributes="Bold" FontSize="30" TextColor="White" Text="{Binding Nombre}"></Label>
+            <StackLayout Margin="5,0,10,0">
+                <Frame Margin="20,2,285,10" HeightRequest="30" Padding="0" Opacity="1" CornerRadius="60">
+                    <Frame.Background>
+                        <LinearGradientBrush>
+                            <LinearGradientBrush.GradientStops>
+                                <GradientStop Color="#944ACA"></GradientStop>
+                                <GradientStop Color="#9CECF1"></GradientStop>
+                            </LinearGradientBrush.GradientStops>
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                    <Label FontAttributes="Italic" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" FontSize="17" TextColor="White" Text="{Binding Año}"></Label>
+                </Frame>
+            </StackLayout>
+            <FlexLayout Margin="20,0,0,0">
+                <Image Source="Reloj.png" WidthRequest="17"></Image>
+                <Label Margin="5,2.5,0,2" TextColor="LightGray" Text="{Binding Duración, StringFormat='Duración: {0} Minutos'}"></Label>
+                <Frame BackgroundColor="DarkGray" Margin="10,5,0,5" Padding="0.3"></Frame>
+                <Label Margin="10,2.5,0,5" TextColor="LightGray" Text="{Binding Género}"> </Label>
+            </FlexLayout>
+            <FlexLayout Margin="20,5,5,0">
+                <Image Source="Estrella.png" WidthRequest="30"></Image>
+                <Label Margin="4,0,0,0" TextColor="Gold" FontSize="23" FontAttributes="Bold" Text="{Binding Calificación, StringFormat='{0:F1}'}"></Label>
+            </FlexLayout>
+            <Frame BackgroundColor="DarkGray" Margin="15,15,15,0" Padding="0.3"></Frame>
+            <Label Margin="20,10,0,0" FontAttributes="Bold" FontSize="20" TextColor="White">Sinópsis</Label>
+            <Label Margin="20,10,40,30" TextColor="White" Text="{Binding Sinopsis}"></Label>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
