@@ -29,12 +29,12 @@
                 <DataTemplate>
                     <SwipeView BackgroundColor="#100E2A">
                         <SwipeView.RightItems>
-                            <SwipeItems Mode="Execute">
+                            <SwipeItems>
                             <SwipeItem Command="{Binding Source={x:Reference pvm}, Path=EditarCommand}" CommandParameter="{Binding .}" BackgroundColor="Gold" Text="Editar" ></SwipeItem>
                             </SwipeItems>
                         </SwipeView.RightItems>
                         <SwipeView.LeftItems>
-                            <SwipeItems Mode="Execute">
+                            <SwipeItems>
                                 <SwipeItem Clicked="SwipeItem_Clicked" CommandParameter="{Binding .}" BackgroundColor="#B41818" Text="Eliminar"></SwipeItem>
                             </SwipeItems>
                         </SwipeView.LeftItems>
